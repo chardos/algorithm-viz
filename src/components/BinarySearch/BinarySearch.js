@@ -7,7 +7,7 @@ class BinarySearchWrap extends Component {
     constructor(){
         super();
         this.state = {
-            searchedValue: 12,
+            searchedValue: 45,
             array: [2, 5, 8, 12 ,15, 45, 75, 77, 88],
             active: [0, 1, 2, 3, 4, 5, 6, 7, 8], //goes by index
             selected: null, //goes by index
@@ -50,6 +50,7 @@ class BinarySearchWrap extends Component {
         }
         return (
             <div className="binary-search">
+                <div className="binary-search__searched-value">{this.state.searchedValue}</div>
                 <div className="binary-search-wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const active = this.state.active.indexOf(i) >= 0;
