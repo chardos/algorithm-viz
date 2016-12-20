@@ -20,10 +20,19 @@
     color: white;
     background-color: #777;
     border-radius: 50%;
+    opacity: 0.5;
     transition: all .3s;
 
     &:last-child{
         margin-right: 0;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    &.selected {
+        background-color: black;
     }
 }
 
