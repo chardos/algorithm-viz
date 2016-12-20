@@ -38,6 +38,10 @@
     &.not-found {
         background-color: red;
     }
+
+    &.found {
+        background-color: green;
+    }
 }
 
 .binary-search__sort-button{
