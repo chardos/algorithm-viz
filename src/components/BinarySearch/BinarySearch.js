@@ -7,8 +7,17 @@ class BinarySearchWrap extends Component {
     constructor(){
         super();
         this.state = {
-            array: [2,5,8,12,15,45,75,77,88]
+            array: [2, 5, 8, 12 ,15,45, 75, 77, 88],
+            faded: [2, 5],
+            highlighted: 3
         }
+    }
+
+    start = () => {
+        console.log(this.state.array);
+        // this.setState({
+        //     array: binarySearch(this.state.array)
+        // })
     }
     render() {
         var style = {
@@ -28,6 +37,8 @@ class BinarySearchWrap extends Component {
                         )
                     })}
                 </div>
+
+                <button className="binary-search__sort-button" onClick={this.start}>Start</button>
             </div>
         );
     }

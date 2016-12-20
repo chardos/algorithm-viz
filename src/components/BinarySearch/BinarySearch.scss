@@ -1,7 +1,10 @@
 .binary-search{
     padding-top: 150px;
-    display: flex;
-    justify-content: center;
+}
+.binary-search-wrap{
+    margin: 0 auto;
+    height: 50px;
+    margin-bottom: 50px;
 }
 .binary-search__box-wrap{
     position: relative;
@@ -17,8 +20,13 @@
     color: white;
     background-color: #777;
     border-radius: 50%;
+    transition: all .3s;
 
     &:last-child{
         margin-right: 0;
     }
+}
+
+.binary-search__sort-button{
+    padding: 5px 15px;
 }
