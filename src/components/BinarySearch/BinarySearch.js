@@ -10,23 +10,31 @@ class BinarySearchWrap extends Component {
             searchedValue: 77,
             array: [2, 5, 8, 12 ,15, 45, 75, 77, 88],
             active: [0, 1, 2, 3, 4, 5, 6, 7, 8], //goes by index
-            selected: null //goes by index
+            selected: null, //goes by index
+            notFound: null //goes by index
         }
         this.generator = binarySearchGenerator(this.state.array, this.state.searchedValue)
     }
 
     next = () => {
         const action = this.generator.next().value;
+        console.log(action.type);
         if (action.type === 'select'){
-            console.log(action.value);
             this.setState({selected: action.value})
+        }
+        if (action.type === 'not_found'){
+            this.setState({
+                notFound: action.value,
+                selected: null
+            })
         }
         if (action.type === 'update_active'){
             this.setState({
                 active: action.value,
-                selected: null
+                notFound: null
             })
         }
+
         // this.setState({
         //     array: binarySearch(this.state.array)
         // })
@@ -41,10 +49,12 @@ class BinarySearchWrap extends Component {
                     {this.state.array.map((number, i) => {
                         const active = this.state.active.indexOf(i) >= 0;
                         const selected = this.state.selected === i;
+                        const notFound = this.state.notFound === i;
                         return(
                             <BinarySearchBox
                                 active={active}
                                 selected={selected}
+                                notFound={notFound}
                                 key={number}
                                 position={i * 60}
                             >

@@ -8,7 +8,8 @@ const BinarySearchBox = function (props) {
     const classes = classNames(
         'binary-search__box',
         {active: props.active},
-        {selected: props.selected}
+        {selected: props.selected},
+        {'not-found': props.notFound}
     )
     return (
         <div className={classes}

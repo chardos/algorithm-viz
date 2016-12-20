@@ -15,17 +15,13 @@ export default function* binarySearchGenerator(array, number, low = 0, high = ar
     if (number === array[mid]) return mid;
     if (low === high) return null;
     if (number < array[mid]){
-        yield {
-            type: 'update_active',
-            value: range(low, mid - 1)
-        }
+        yield { type: 'not_found', value: mid};
+        yield { type: 'update_active', value: range(low, mid - 1) };
         yield* binarySearchGenerator(array, number, low, mid - 1)
     };
     if (number > array[mid]){
-        yield {
-            type: 'update_active',
-            value: range(mid + 1, high)
-        }
+        yield { type: 'not_found', value: mid};
+        yield { type: 'update_active', value: range(mid + 1, high) };
         yield* binarySearchGenerator(array, number, mid + 1, high);
     }
 }
