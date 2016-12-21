@@ -7,14 +7,25 @@ class BinarySearchWrap extends Component {
     constructor(){
         super();
         this.state = {
-            searchedValue: 45,
+            chosen: false,
+            searchedValue: null,
             array: [2, 5, 8, 12 ,15, 45, 75, 77, 88],
             active: [0, 1, 2, 3, 4, 5, 6, 7, 8], //goes by index
             selected: null, //goes by index
             notFound: null, //goes by index
             found: null //goes by index
         }
-        this.generator = binarySearchGenerator(this.state.array, this.state.searchedValue)
+        this.generator = null;
+    }
+
+    setSearchedValue = (searchedValue) => {
+        this.setState({
+            searchedValue: parseInt(searchedValue),
+            chosen: true
+        });
+        setTimeout(() => {
+            this.generator = binarySearchGenerator(this.state.array, this.state.searchedValue);
+        })
     }
 
     next = () => {
@@ -50,7 +61,7 @@ class BinarySearchWrap extends Component {
         }
         return (
             <div className="binary-search">
-                <div className="binary-search__searched-value">{this.state.searchedValue}</div>
+                <div className="binary-search__searched-value">{this.state.searchedValue || 'Choose'}</div>
                 <div className="binary-search-wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const active = this.state.active.indexOf(i) >= 0;
@@ -65,14 +76,18 @@ class BinarySearchWrap extends Component {
                                 found={found}
                                 key={number}
                                 position={i * 60}
+                                setSearchedValue={this.setSearchedValue}
                             >
                                 {number}
                             </BinarySearchBox>
                         )
                     })}
                 </div>
+                {
+                    this.state.chosen &&
+                    <button className="binary-search__sort-button" onClick={this.next}>Next</button>
+                }
 
-                <button className="binary-search__sort-button" onClick={this.next}>Next</button>
             </div>
         );
     }

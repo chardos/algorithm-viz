@@ -12,9 +12,11 @@ const BinarySearchBox = function (props) {
         {'not-found': props.notFound},
         {found: props.found}
     )
+
     return (
         <div className={classes}
             style={style}
+            onClick={ () => props.setSearchedValue(props.children) }
         >
             {props.children}
         </div>
