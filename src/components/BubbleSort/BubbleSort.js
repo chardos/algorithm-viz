@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import bubbleSortGenerator from './algorithm';
+import SingleNode from '../Common/SingleNode/SingleNode';
 import './BubbleSort.scss';
 
 export default class BubbleSortWrap extends Component {
@@ -48,7 +49,12 @@ export default class BubbleSortWrap extends Component {
                 <div className="binary-search-wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         return(
-                            <div></div>
+                            <SingleNode
+                                key={number}
+                                position={i * 60}
+                            >
+                                {number}
+                            </SingleNode>
                         )
                     })}
                 </div>
