@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import binarySearchGenerator from './algorithm';
 import BinarySearchBox from './BinarySearchBox';
 import Node from '../Common/Node/Node';
+import classNames from 'classnames';
 import './BinarySearch.scss';
 
 class BinarySearchWrap extends Component {
@@ -65,16 +66,16 @@ class BinarySearchWrap extends Component {
                 <div className="binary-search__searched-value">{this.state.searchedValue || 'Choose'}</div>
                 <div className="binary-search-wrap" style={style}>
                     {this.state.array.map((number, i) => {
-                        const active = this.state.active.indexOf(i) >= 0;
-                        const selected = this.state.selected === i;
-                        const notFound = this.state.notFound === i;
-                        const found = this.state.found === i;
+
+                        const classes = classNames(
+                            {active: this.state.active.indexOf(i) >= 0},
+                            {selected: this.state.selected === i},
+                            {'not-found': this.state.notFound === i},
+                            {found: this.state.found === i}
+                        )
                         return(
                             <Node
-                                active={active}
-                                selected={selected}
-                                notFound={notFound}
-                                found={found}
+                                classes={classes}
                                 key={number}
                                 position={i * 60}
                                 setSearchedValue={this.setSearchedValue}
