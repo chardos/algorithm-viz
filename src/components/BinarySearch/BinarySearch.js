@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import binarySearchGenerator from './algorithm';
 import BinarySearchBox from './BinarySearchBox';
+import Node from '../Common/Node/Node';
 import './BinarySearch.scss';
 
 class BinarySearchWrap extends Component {
@@ -69,7 +70,7 @@ class BinarySearchWrap extends Component {
                         const notFound = this.state.notFound === i;
                         const found = this.state.found === i;
                         return(
-                            <BinarySearchBox
+                            <Node
                                 active={active}
                                 selected={selected}
                                 notFound={notFound}
@@ -79,7 +80,7 @@ class BinarySearchWrap extends Component {
                                 setSearchedValue={this.setSearchedValue}
                             >
                                 {number}
-                            </BinarySearchBox>
+                            </Node>
                         )
                     })}
                 </div>

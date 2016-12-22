@@ -1,12 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
+import './Node.scss';
 
-const BinarySearchBox = function (props) {
+export default Node = function (props) {
     const style = {
         transform: `translateX(${props.position}px)`
     }
     const classes = classNames(
-        'binary-search__box',
+        'node',
         {active: props.active},
         {selected: props.selected},
         {'not-found': props.notFound},
@@ -22,5 +23,3 @@ const BinarySearchBox = function (props) {
         </div>
     );
 };
-
-export default BinarySearchBox;

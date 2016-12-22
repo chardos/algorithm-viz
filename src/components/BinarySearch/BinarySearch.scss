@@ -15,41 +15,7 @@
 .binary-search__box-wrap{
     position: relative;
 }
-.binary-search__box{
-    cursor: pointer;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    color: white;
-    background-color: #777;
-    border-radius: 50%;
-    opacity: 0.5;
-    transition: all .3s;
 
-    &:last-child{
-        margin-right: 0;
-    }
-
-    &.active {
-        opacity: 1;
-    }
-
-    &.selected {
-        background-color: black;
-    }
-
-    &.not-found {
-        background-color: red;
-    }
-
-    &.found {
-        background-color: green;
-    }
-}
 
 .binary-search__sort-button{
     padding: 5px 15px;
