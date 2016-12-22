@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import bubbleSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
+import classNames from 'classnames';
 import './BubbleSort.scss';
 
 export default class BubbleSortWrap extends Component {
     constructor(){
         super();
+        selected: null,
         this.state = {
-            array: [2, 5, 8, 12 ,15, 45, 75, 77, 88],
+            array: [8,6,3,5,7,9,4],
         }
-        // this.generator = binarySearchGenerator(this.state.array, this.state.searchedValue);
+        this.generator = bubbleSortGenerator(this.state.array);
     }
 
     next = () => {
@@ -19,22 +21,9 @@ export default class BubbleSortWrap extends Component {
         if (action.type === 'select'){
             this.setState({selected: action.value})
         }
-        if (action.type === 'not_found'){
+        if (action.type === 'update_list'){
             this.setState({
-                notFound: action.value,
-                selected: null
-            })
-        }
-        if (action.type === 'found'){
-            this.setState({
-                found: action.value,
-                selected: null
-            })
-        }
-        if (action.type === 'update_active'){
-            this.setState({
-                active: action.value,
-                notFound: null
+                array: action.value
             })
         }
     }
@@ -44,12 +33,19 @@ export default class BubbleSortWrap extends Component {
             width: this.state.array.length * 60 - 10
         }
         return (
-            <div className="binary-search">
-                <div className="binary-search__searched-value">{this.state.searchedValue || 'Choose'}</div>
-                <div className="binary-search-wrap" style={style}>
+            <div className="bubble-sort">
+                <div className="bubble-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
+                        const classes = classNames(
+                            {
+                                selected: this.state.selected === i ||
+                                          this.state.selected + 1 === i
+                            },
+                        )
+
                         return(
                             <SingleNode
+                                classes={classes}
                                 key={number}
                                 position={i * 60}
                             >
@@ -58,11 +54,8 @@ export default class BubbleSortWrap extends Component {
                         )
                     })}
                 </div>
-                {
-                    this.state.chosen &&
-                    <button className="binary-search__sort-button" onClick={this.next}>Next</button>
-                }
 
+                <button className="binary-search__sort-button" onClick={this.next}>Next</button>
             </div>
         );
     }

@@ -10,18 +10,26 @@ const swap = (list, position) => {
     }
 }
 
-export const bubbleSortGenerator = (list, position = 0, swapCounter = 0) => {
+export default function* bubbleSortGenerator (list, position = 0, swapCounter = 0) {
     if(position + 1 == list.length){ // End of sort round
         if(swapCounter == 0) return list; // If got through round without any swaps
         position = 0;
         swapCounter = 0;
     }
+    yield {
+        type: 'select',
+        value: position
+    };
     const newList = swap(list, position);
     if (newList){
-        return bubbleSortGenerator(newList, position + 1, swapCounter + 1);
+        yield {
+            type: 'update_list',
+            value: newList
+        }
+        yield* bubbleSortGenerator(newList, position + 1, swapCounter + 1);
     }
     else{
-        return bubbleSortGenerator(list, position + 1, swapCounter);
+        yield* bubbleSortGenerator(list, position + 1, swapCounter);
     }
 
 }

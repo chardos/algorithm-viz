@@ -7,7 +7,7 @@ export default function SingleNode(props) {
     }
 
     return (
-        <div className={`node ${props.classes}`}
+        <div className={`node ${props.classes ? props.classes : ''}`}
             style={style}
             onClick={ () => props.setSearchedValue(props.children) }
         >
