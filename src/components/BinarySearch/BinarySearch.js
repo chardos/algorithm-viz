@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import binarySearchGenerator from './algorithm';
-import BinarySearchBox from './BinarySearchBox';
 import Node from '../Common/Node/Node';
 import classNames from 'classnames';
 import './BinarySearch.scss';
