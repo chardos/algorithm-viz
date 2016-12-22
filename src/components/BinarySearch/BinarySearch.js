@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import binarySearchGenerator from './algorithm';
-import Node from '../Common/Node/Node';
+import SingleNode from '../Common/SingleNode/SingleNode';
 import classNames from 'classnames';
 import './BinarySearch.scss';
 
@@ -21,7 +21,7 @@ class BinarySearchWrap extends Component {
 
     setSearchedValue = (searchedValue) => {
         this.setState({
-            searchedValue: parseInt(searchedValue),
+            searchedValue: parseInt(searchedValue, 10),
             chosen: true
         });
         setTimeout(() => {
@@ -73,14 +73,14 @@ class BinarySearchWrap extends Component {
                             {found: this.state.found === i}
                         )
                         return(
-                            <Node
+                            <SingleNode
                                 classes={classes}
                                 key={number}
                                 position={i * 60}
                                 setSearchedValue={this.setSearchedValue}
                             >
                                 {number}
-                            </Node>
+                            </SingleNode>
                         )
                     })}
                 </div>
