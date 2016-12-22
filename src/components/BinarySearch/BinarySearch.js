@@ -67,6 +67,7 @@ class BinarySearchWrap extends Component {
                     {this.state.array.map((number, i) => {
 
                         const classes = classNames(
+                            'faded-by-default',
                             {active: this.state.active.indexOf(i) >= 0},
                             {selected: this.state.selected === i},
                             {'not-found': this.state.notFound === i},

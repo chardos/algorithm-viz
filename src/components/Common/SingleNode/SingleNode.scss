@@ -10,11 +10,14 @@
     color: white;
     background-color: #777;
     border-radius: 50%;
-    opacity: 0.5;
     transition: all .3s;
 
     &:last-child{
         margin-right: 0;
+    }
+
+    &.faded-by-default{
+        opacity: .5;
     }
 
     &.active {
