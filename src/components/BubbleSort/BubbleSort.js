@@ -10,6 +10,7 @@ export default class BubbleSortWrap extends Component {
         selected: null,
         this.state = {
             array: [8,6,3,5,7,9,4],
+            swapped: []
         }
         this.generator = bubbleSortGenerator(this.state.array);
     }
@@ -21,9 +22,18 @@ export default class BubbleSortWrap extends Component {
         if (action.type === 'select'){
             this.setState({selected: action.value})
         }
+        if (action.type === 'animate_swap'){
+            this.setState({
+                swapped: [action.value, action.value + 1]
+            })
+            setTimeout(() => {
+                this.next()
+            },300)
+        }
         if (action.type === 'update_list'){
             this.setState({
-                array: action.value
+                array: action.value,
+                swapped: []
             })
         }
     }
@@ -42,12 +52,14 @@ export default class BubbleSortWrap extends Component {
                                           this.state.selected + 1 === i
                             },
                         )
-
+                        const moveForwards = this.state.swapped[0] === i;
+                        const moveBackwards = this.state.swapped[1] === i;
+                        const animationMod = moveBackwards && -60 || moveForwards && 60;
                         return(
                             <SingleNode
                                 classes={classes}
                                 key={number}
-                                position={i * 60}
+                                position={i * 60 + animationMod}
                             >
                                 {number}
                             </SingleNode>

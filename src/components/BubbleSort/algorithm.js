@@ -23,6 +23,10 @@ export default function* bubbleSortGenerator (list, position = 0, swapCounter = 
     const newList = swap(list, position);
     if (newList){
         yield {
+            type: 'animate_swap',
+            value: position
+        }
+        yield {
             type: 'update_list',
             value: newList
         }
