@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import Header from './components/Common/Header/Header';
 import './App.scss';
 
 class App extends Component {
   render() {
     return (
         <div className="App">
-            <div className="header">
-                <Link to="/binarysearch" className="header__link">Bubble sort</Link>
-                <Link to="/bubblesort" className="header__link">Bubble sort</Link>
-            </div>
+            <Header />
             {this.props.children}
-
         </div>
     );
   }
