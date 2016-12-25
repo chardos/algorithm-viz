@@ -1,0 +1,2 @@
+- Add a barchart view
+- Add a randomize function for each viz
