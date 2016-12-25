@@ -1,0 +1,33 @@
+.bar{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    background-color: #777;
+    transition: all .3s;
+
+    &:last-child{
+        margin-right: 0;
+    }
+
+    &.faded-by-default{
+        opacity: .5;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    &.selected {
+        background-color: black;
+    }
+
+    &.not-found {
+        background-color: red;
+    }
+
+    &.found {
+        background-color: green;
+    }
+}

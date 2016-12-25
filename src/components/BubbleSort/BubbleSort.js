@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import bubbleSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
+import Bar from '../Common/Bar/Bar';
 import classNames from 'classnames';
 import './BubbleSort.scss';
 
@@ -10,7 +11,8 @@ export default class BubbleSortWrap extends Component {
         selected: null,
         this.state = {
             array: [8,6,3,5,7,9,4],
-            swapped: []
+            swapped: [],
+            display: 'bars'
         }
         this.generator = bubbleSortGenerator(this.state.array);
     }
@@ -56,13 +58,13 @@ export default class BubbleSortWrap extends Component {
                         const moveBackwards = this.state.swapped[1] === i;
                         const animationMod = moveBackwards && -60 || moveForwards && 60;
                         return(
-                            <SingleNode
+                            <Bar
                                 classes={classes}
                                 key={number}
                                 position={i * 60 + animationMod}
                             >
                                 {number}
-                            </SingleNode>
+                            </Bar>
                         )
                     })}
                 </div>
