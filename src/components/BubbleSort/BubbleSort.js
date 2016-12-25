@@ -12,9 +12,17 @@ export default class BubbleSortWrap extends Component {
         this.state = {
             array: [8,6,3,5,7,9,4],
             swapped: [],
-            display: 'bars'
+            displayComponent: SingleNode
         }
         this.generator = bubbleSortGenerator(this.state.array);
+    }
+
+    toggleView = () => {
+        if(this.state.displayComponent === Bar){
+            this.setState({displayComponent: SingleNode})
+        } else {
+            this.setState({displayComponent: Bar})
+        }
     }
 
     next = () => {
@@ -57,18 +65,20 @@ export default class BubbleSortWrap extends Component {
                         const moveForwards = this.state.swapped[0] === i;
                         const moveBackwards = this.state.swapped[1] === i;
                         const animationMod = moveBackwards && -60 || moveForwards && 60;
+                        var MyComponent = this.state.displayComponent;
                         return(
-                            <Bar
+                            <MyComponent
                                 classes={classes}
                                 key={number}
                                 position={i * 60 + animationMod}
                             >
                                 {number}
-                            </Bar>
+                            </MyComponent>
                         )
                     })}
                 </div>
 
+                <button className="binary-search__sort-button" onClick={this.toggleView}>Toggle view</button>
                 <button className="binary-search__sort-button" onClick={this.next}>Next</button>
             </div>
         );
