@@ -1,3 +1,4 @@
-- Add a randomize function for each viz
 - add quick sort viz
+- add a "finished" state for the viz's
+- Add a randomize function for each viz
 - Add merge sort viz

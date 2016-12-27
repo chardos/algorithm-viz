@@ -34,7 +34,13 @@ export default class QuickSortWrap extends Component {
             this.setState({selected: action.payload})
         }
         if (action.type === 'ANIMATE_SWAP'){
-            this.setState({swapped: action.payload})
+            this.setState({swapped: action.payload.swapped})
+            setTimeout(() => {
+                this.setState({
+                    swapped: [],
+                    array: action.payload.items
+                })
+            }, 300)
         }
         if (action.type === 'update_list'){
             this.setState({

@@ -23,11 +23,14 @@ function* partition(items, leftIndex, rightIndex) {
         }
 
         if (leftIndex <= rightIndex) {
-            // yield {
-            //     type: 'ANIMATE_SWAP',
-            //     payload: [leftIndex, rightIndex]
-            // }
             items = swap(items, leftIndex, rightIndex);
+            yield {
+                type: 'ANIMATE_SWAP',
+                payload: {
+                    swapped: [leftIndex, rightIndex],
+                    items
+                }
+            }
             leftIndex++;
             rightIndex--;
         }
