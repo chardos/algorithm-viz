@@ -1,6 +1,17 @@
-export function setPointers(leftIndex, rightIndex){
+export function setPointers(leftIndex, rightIndex, pivotIndex){
     return {
         type: 'SET_POINTERS',
-        payload: [leftIndex, rightIndex]
+        payload: {
+            selected: [leftIndex, rightIndex],
+            pivotIndex
+        }
+
     }
 }
+
+// export function setPivot(index){
+//     return {
+//         type: 'SET_PIVOT',
+//         payload: index
+//     }
+// }

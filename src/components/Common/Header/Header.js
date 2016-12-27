@@ -7,6 +7,7 @@ export default function Header(props) {
         <div className="header">
             <Link to="/binarysearch" className="header__link">Binary search</Link>
             <Link to="/bubblesort" className="header__link">Bubble sort</Link>
+            <Link to="/quicksort" className="header__link">Quick sort</Link>
         </div>
     );
 };

@@ -11,6 +11,7 @@ export default class QuickSortWrap extends Component {
         selected: null,
         this.state = {
             array: [8,6,3,5,7,9,4],
+            pivotIndex: null,
             selected: [],
             swapped: [],
             displayComponent: SingleNode
@@ -28,10 +29,12 @@ export default class QuickSortWrap extends Component {
 
     next = () => {
         const action = this.generator.next().value;
-        console.log(action.type);
-        console.log(action.payload);
+
         if (action.type === 'SET_POINTERS'){
-            this.setState({selected: action.payload})
+            this.setState({
+                selected: action.payload.selected,
+                pivotIndex: action.payload.pivotIndex
+            })
         }
         if (action.type === 'ANIMATE_SWAP'){
             this.setState({swapped: action.payload.swapped})
@@ -59,12 +62,9 @@ export default class QuickSortWrap extends Component {
                 <div className="quick-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const classes = classNames(
-                            {
-                                selected: this.state.selected.includes(i)
-                            }
+                            { selected: this.state.selected.includes(i) },
+                            { 'secondary-selected': this.state.pivotIndex === i}
                         )
-                        console.log('1', this.state.swapped[1]);
-                        console.log('i', i);
                         let modifiedPosition;
                         if (this.state.swapped[0] === i){
                             modifiedPosition = this.state.swapped[1] * 60;

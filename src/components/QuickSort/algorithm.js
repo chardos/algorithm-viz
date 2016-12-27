@@ -9,17 +9,20 @@ function swap(items, firstIndex, secondIndex){
 
 function* partition(items, leftIndex, rightIndex) {
 
-    var pivot = items[Math.floor((rightIndex + leftIndex) / 2)];
+    var pivotIndex = Math.floor((rightIndex + leftIndex) / 2);
+    var pivot = items[pivotIndex];
+
+    yield setPointers(leftIndex, rightIndex, pivotIndex);
 
     while (leftIndex <= rightIndex) {
         while (items[leftIndex] < pivot) {
             leftIndex++;
-            yield setPointers(leftIndex, rightIndex);
+            yield setPointers(leftIndex, rightIndex, pivotIndex);
         }
 
         while (items[rightIndex] > pivot) {
             rightIndex--;
-            yield setPointers(leftIndex, rightIndex);
+            yield setPointers(leftIndex, rightIndex, pivotIndex);
         }
 
         if (leftIndex <= rightIndex) {
@@ -43,8 +46,6 @@ export default function* quickSortGenerator(items, leftIndex = 0, rightIndex = i
 
     var index;
 
-    yield setPointers(leftIndex, rightIndex);
-
     if (items.length > 1) {
 
         // index = partition(items, leftIndex, rightIndex);
@@ -61,7 +62,7 @@ export default function* quickSortGenerator(items, leftIndex = 0, rightIndex = i
         }
 
     }
-
+    console.log('DONE');
     return items;
 }
 
