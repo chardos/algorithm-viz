@@ -33,6 +33,9 @@ export default class QuickSortWrap extends Component {
         if (action.type === 'SET_POINTERS'){
             this.setState({selected: action.payload})
         }
+        if (action.type === 'ANIMATE_SWAP'){
+            this.setState({swapped: action.payload})
+        }
         if (action.type === 'update_list'){
             this.setState({
                 array: action.value,
@@ -52,20 +55,28 @@ export default class QuickSortWrap extends Component {
                         const classes = classNames(
                             {
                                 selected: this.state.selected.includes(i)
-                            },
+                            }
                         )
-                        const moveForwards = this.state.swapped[0] === i;
-                        const moveBackwards = this.state.swapped[1] === i;
-                        const animationMod = moveBackwards && -60 || moveForwards && 60;
-                        var MyComponent = this.state.displayComponent;
+                        console.log('1', this.state.swapped[1]);
+                        console.log('i', i);
+                        let modifiedPosition;
+                        if (this.state.swapped[0] === i){
+                            modifiedPosition = this.state.swapped[1] * 60;
+                        }
+                        if (this.state.swapped[1] === i){
+                            modifiedPosition = this.state.swapped[0] * 60;
+                        }
+                        const normalPosition = i * 60
+                        const position = modifiedPosition !== undefined ? modifiedPosition : normalPosition;
+                        var DisplayComponent = this.state.displayComponent;
                         return(
-                            <MyComponent
+                            <DisplayComponent
                                 classes={classes}
                                 key={number}
-                                position={i * 60 + animationMod}
+                                position={position}
                             >
                                 {number}
-                            </MyComponent>
+                            </DisplayComponent>
                         )
                     })}
                 </div>
