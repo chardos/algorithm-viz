@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { randomizeArray, range } from '../../utils';
 import bubbleSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
+import SortWrapper from '../Common/SortWrapper/SortWrapper';
 import Bar from '../Common/Bar/Bar';
 import classNames from 'classnames';
 import './BubbleSort.scss';
 
-export default class BubbleSortWrap extends Component {
+export default class BubbleSortWrap extends SortWrapper {
     constructor(){
         super();
         this.state = {
@@ -18,20 +19,17 @@ export default class BubbleSortWrap extends Component {
         this.generator = bubbleSortGenerator(this.state.array);
     }
 
-    reset = () => {
-        console.log(this.state);
-        this.setState({
-            swapped: [],
-            selected: -100
-        })
-    }
-
-    randomize = () => {
-        this.reset();
-        this.setState(
-            { array: randomizeArray(range(1,8)) },
-            () => this.generator = bubbleSortGenerator(this.state.array)
-        );
+    // randomize = () => {
+    //     console.log(this);
+    //     this.reset();
+    //     this.setState(
+    //         { array: randomizeArray(range(1,8)) },
+    //         () => this.generator = bubbleSortGenerator(this.state.array)
+    //     );
+    // }
+    //
+    resetGenerator = () => {
+        this.generator = bubbleSortGenerator(this.state.array)
     }
 
     toggleView = () => {
