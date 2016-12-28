@@ -54,11 +54,11 @@ export default function* quickSortGenerator(items, leftIndex = 0, rightIndex = i
         items = partitionResult.items;
 
         if (leftIndex < index - 1) {
-            return yield* quickSortGenerator(items, leftIndex, index - 1);
+            items = yield* quickSortGenerator(items, leftIndex, index - 1);
         }
 
         if (index < rightIndex) {
-            return yield* quickSortGenerator(items, index, rightIndex);
+            items = yield* quickSortGenerator(items, index, rightIndex);
         }
 
     }
