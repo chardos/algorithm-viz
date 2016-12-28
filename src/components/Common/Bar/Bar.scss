@@ -23,11 +23,15 @@
         background-color: black;
     }
 
+    &.secondary-selected {
+        background-color: blue;
+    }
+
     &.not-found {
         background-color: red;
     }
 
-    &.found {
+    &.found, &.done {
         background-color: green;
     }
 }

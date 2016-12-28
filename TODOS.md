@@ -1,4 +1,4 @@
-- update constants in file
 - add a "finished" state for the viz's
+- update constants in file
 - pivot marker above
 - Add merge sort viz

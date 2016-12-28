@@ -22,7 +22,7 @@ function* partition(items, leftIndex, rightIndex) {
         if (leftIndex <= rightIndex) {
             items = swap(items, leftIndex, rightIndex);
             yield {
-                type: 'ANIMATE_SWAP',
+                type: 'SWAP',
                 payload: {
                     swapped: [leftIndex, rightIndex],
                     items
@@ -56,7 +56,9 @@ export default function* quickSortGenerator(items, leftIndex = 0, rightIndex = i
         }
 
     }
-    console.log('DONE');
+    yield {
+        type: 'DONE'
+    }
     return items;
 }
 
