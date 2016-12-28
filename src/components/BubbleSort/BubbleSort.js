@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { randomizeArray, range } from '../../utils';
 import bubbleSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
 import Bar from '../Common/Bar/Bar';
@@ -8,13 +9,29 @@ import './BubbleSort.scss';
 export default class BubbleSortWrap extends Component {
     constructor(){
         super();
-        selected: null,
         this.state = {
-            array: [8,6,3,5,7,9,4],
+            selected: -100,
+            array: randomizeArray(range(1,8)),
             swapped: [],
             displayComponent: SingleNode
         }
         this.generator = bubbleSortGenerator(this.state.array);
+    }
+
+    reset = () => {
+        console.log(this.state);
+        this.setState({
+            swapped: [],
+            selected: -100
+        })
+    }
+
+    randomize = () => {
+        this.reset();
+        this.setState(
+            { array: randomizeArray(range(1,8)) },
+            () => this.generator = bubbleSortGenerator(this.state.array)
+        );
     }
 
     toggleView = () => {
@@ -78,6 +95,7 @@ export default class BubbleSortWrap extends Component {
                     })}
                 </div>
 
+                <button className="binary-search__sort-button" onClick={this.randomize}>Randomize</button>
                 <button className="binary-search__sort-button" onClick={this.toggleView}>Toggle view</button>
                 <button className="binary-search__sort-button" onClick={this.next}>Next</button>
             </div>

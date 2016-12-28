@@ -1,11 +1,5 @@
 import { setPointers } from './actions';
-
-function swap(items, firstIndex, secondIndex){
-    let newItems = [...items];
-    newItems[firstIndex] = items[secondIndex];
-    newItems[secondIndex] = items[firstIndex];
-    return newItems;
-}
+import { swap } from '../../utils';
 
 function* partition(items, leftIndex, rightIndex) {
 

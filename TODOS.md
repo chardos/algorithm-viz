@@ -1,4 +1,5 @@
-- add quick sort viz
-- add a "finished" state for the viz's
 - Add a randomize function for each viz
+- update constants in file
+- add a "finished" state for the viz's
+- pivot marker above
 - Add merge sort viz
