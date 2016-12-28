@@ -11,7 +11,8 @@ export default class Wrapper extends Component {
     reset = () => {
         this.setState({
             swapped: [],
-            selected: []
+            selected: [],
+            pivotIndex: null
         })
     }
 
