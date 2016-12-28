@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import SortWrapper from '../Common/SortWrapper/SortWrapper';
 import quickSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
 import Bar from '../Common/Bar/Bar';
 import classNames from 'classnames';
 import './QuickSort.scss';
 
-export default class QuickSortWrap extends Component {
+export default class QuickSortWrap extends SortWrapper {
     constructor(){
         super();
         selected: null,
@@ -16,6 +17,10 @@ export default class QuickSortWrap extends Component {
             swapped: [],
             displayComponent: SingleNode
         }
+        this.generator = quickSortGenerator(this.state.array);
+    }
+
+    resetGenerator = () => {
         this.generator = quickSortGenerator(this.state.array);
     }
 
@@ -87,6 +92,7 @@ export default class QuickSortWrap extends Component {
                     })}
                 </div>
 
+                <button className="binary-search__sort-button" onClick={this.randomize}>Randomize</button>
                 <button className="binary-search__sort-button" onClick={this.toggleView}>Toggle view</button>
                 <button className="binary-search__sort-button" onClick={this.next}>Next</button>
             </div>

@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { randomizeArray, range } from '../../../utils';
-// import bubbleSortGenerator from '../../BubbleSort/Bubblesort/algorithm';
+import SingleNode from '../SingleNode/SingleNode';
+import Bar from '../Bar/Bar';
 
 export default class Wrapper extends Component {
     constructor(){
@@ -10,16 +11,23 @@ export default class Wrapper extends Component {
     reset = () => {
         this.setState({
             swapped: [],
-            selected: -100
+            selected: []
         })
     }
 
     randomize = () => {
-        console.log(this);
         this.reset();
         this.setState(
             { array: randomizeArray(range(1,8)) },
             () => this.resetGenerator()
         );
+    }
+
+    toggleView = () => {
+        if(this.state.displayComponent === Bar){
+            this.setState({displayComponent: SingleNode})
+        } else {
+            this.setState({displayComponent: Bar})
+        }
     }
 };

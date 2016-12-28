@@ -3,7 +3,6 @@ import { randomizeArray, range } from '../../utils';
 import bubbleSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
 import SortWrapper from '../Common/SortWrapper/SortWrapper';
-import Bar from '../Common/Bar/Bar';
 import classNames from 'classnames';
 import './BubbleSort.scss';
 
@@ -19,26 +18,11 @@ export default class BubbleSortWrap extends SortWrapper {
         this.generator = bubbleSortGenerator(this.state.array);
     }
 
-    // randomize = () => {
-    //     console.log(this);
-    //     this.reset();
-    //     this.setState(
-    //         { array: randomizeArray(range(1,8)) },
-    //         () => this.generator = bubbleSortGenerator(this.state.array)
-    //     );
-    // }
-    //
     resetGenerator = () => {
         this.generator = bubbleSortGenerator(this.state.array)
     }
 
-    toggleView = () => {
-        if(this.state.displayComponent === Bar){
-            this.setState({displayComponent: SingleNode})
-        } else {
-            this.setState({displayComponent: Bar})
-        }
-    }
+
 
     next = () => {
         const action = this.generator.next().value;
