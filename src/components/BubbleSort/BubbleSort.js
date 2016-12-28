@@ -13,7 +13,8 @@ export default class BubbleSortWrap extends SortWrapper {
             selected: -100,
             array: randomizeArray(range(1,8)),
             swapped: [],
-            displayComponent: SingleNode
+            displayComponent: SingleNode,
+            done: false
         }
         this.generator = bubbleSortGenerator(this.state.array);
     }
@@ -21,8 +22,6 @@ export default class BubbleSortWrap extends SortWrapper {
     resetGenerator = () => {
         this.generator = bubbleSortGenerator(this.state.array)
     }
-
-
 
     next = () => {
         const action = this.generator.next().value;
@@ -45,6 +44,9 @@ export default class BubbleSortWrap extends SortWrapper {
                 swapped: []
             })
         }
+        if (action.type === 'DONE'){
+            this.setState({done: true})
+        }
     }
 
     render() {
@@ -60,6 +62,7 @@ export default class BubbleSortWrap extends SortWrapper {
                                 selected: this.state.selected === i ||
                                           this.state.selected + 1 === i
                             },
+                            { done: this.state.done }
                         )
                         const moveForwards = this.state.swapped[0] === i;
                         const moveBackwards = this.state.swapped[1] === i;
