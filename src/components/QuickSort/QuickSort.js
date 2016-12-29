@@ -37,6 +37,7 @@ export default class QuickSortWrap extends SortWrapper {
         const next = this.generator.next();
         const action = next.value;
         const isDone = next.done === true;
+
         if (isDone) {
             this.setState({done: true});
             return;

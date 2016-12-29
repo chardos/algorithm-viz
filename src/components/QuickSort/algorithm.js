@@ -56,11 +56,5 @@ export default function* quickSortGenerator(items, leftIndex = 0, rightIndex = i
         }
 
     }
-    yield {
-        type: 'DONE'
-    }
     return items;
 }
-
-// first call
-// quickSort([5,3,7,14,6,4,9,12]);
