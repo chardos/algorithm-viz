@@ -13,7 +13,6 @@ const swap = (list, position) => {
 export default function* bubbleSortGenerator (list, position = 0, swapCounter = 0) {
     if(position + 1 == list.length){ // End of sort round
         if(swapCounter == 0) {
-            yield {type: 'DONE'}
             return list;
         } // If got through round without any swaps
         position = 0;

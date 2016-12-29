@@ -28,7 +28,10 @@ export default class BubbleSortWrap extends SortWrapper {
         const action = next.value;
         const isDone = next.done === true;
 
-        if (isDone) return;
+        if (isDone){
+            this.setState({done: true})
+            return;
+        };
 
         if (action.type === 'select'){
             this.setState({selected: action.value})
@@ -46,9 +49,6 @@ export default class BubbleSortWrap extends SortWrapper {
                 array: action.value,
                 swapped: []
             })
-        }
-        if (action.type === 'DONE'){
-            this.setState({done: true})
         }
     }
 
