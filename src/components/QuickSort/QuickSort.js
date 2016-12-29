@@ -40,7 +40,10 @@ export default class QuickSortWrap extends SortWrapper {
         const isDone = next.done === true;
 
         if (isDone) {
-            this.setState({done: true});
+            this.setState({
+                done: true,
+                selected: []
+            });
             return;
         };
 
@@ -59,9 +62,6 @@ export default class QuickSortWrap extends SortWrapper {
                 })
             }, 300)
         }
-        // if (action.type === 'DONE'){
-        //     this.setState({done: true})
-        // }
     }
 
     render() {
