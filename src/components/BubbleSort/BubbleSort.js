@@ -24,9 +24,12 @@ export default class BubbleSortWrap extends SortWrapper {
     }
 
     next = () => {
-        const action = this.generator.next().value;
-        console.log(action.type);
-        console.log(action.value);
+        const next = this.generator.next();
+        const action = next.value;
+        const isDone = next.done === true;
+
+        if (isDone) return;
+
         if (action.type === 'select'){
             this.setState({selected: action.value})
         }

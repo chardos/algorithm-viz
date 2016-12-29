@@ -34,7 +34,11 @@ export default class QuickSortWrap extends SortWrapper {
     }
 
     next = () => {
-        const action = this.generator.next().value;
+        const next = this.generator.next();
+        const action = next.value;
+        // const isDone = next.done === true;
+        //
+        // if (isDone) return;
 
         if (action.type === 'SET_POINTERS'){
             this.setState({
