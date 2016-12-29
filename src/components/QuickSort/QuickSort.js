@@ -91,6 +91,7 @@ export default class QuickSortWrap extends SortWrapper {
                             <DisplayComponent
                                 classes={classes}
                                 key={number}
+                                value={number}
                                 position={position}
                             >
                                 {number}

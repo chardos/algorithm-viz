@@ -74,6 +74,7 @@ export default class BubbleSortWrap extends SortWrapper {
                         return(
                             <MyComponent
                                 classes={classes}
+                                value={number}
                                 key={number}
                                 position={i * 60 + animationMod}
                             >

@@ -4,7 +4,8 @@ import './Bar.scss';
 export default function Bar(props) {
     const style = {
         transform: `translateX(${props.position}px)`,
-        height: props.children * 10
+        height: props.children * 10,
+        'background-color': `hsl(${props.value * 5 + 50}, 50%, 50%)`
     }
 
     return (
