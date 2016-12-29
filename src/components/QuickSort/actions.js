@@ -1,6 +1,8 @@
+import { SET_POINTERS, SWAP } from './constants';
+
 export function setPointers(leftIndex, rightIndex, pivotIndex){
     return {
-        type: 'SET_POINTERS',
+        type: SET_POINTERS,
         payload: {
             selected: [leftIndex, rightIndex],
             pivotIndex
@@ -9,9 +11,12 @@ export function setPointers(leftIndex, rightIndex, pivotIndex){
     }
 }
 
-// export function setPivot(index){
-//     return {
-//         type: 'SET_PIVOT',
-//         payload: index
-//     }
-// }
+export function updateSwapState(leftIndex, rightIndex, items){
+    return {
+        type: SWAP,
+        payload: {
+            swapped: [leftIndex, rightIndex],
+            items
+        }
+    }
+}

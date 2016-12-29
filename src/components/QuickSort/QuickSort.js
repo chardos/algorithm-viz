@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SET_POINTERS, SWAP } from './constants';
 import { randomizeArray, range } from '../../utils';
 import SortWrapper from '../Common/SortWrapper/SortWrapper';
 import quickSortGenerator from './algorithm';
@@ -47,13 +48,13 @@ export default class QuickSortWrap extends SortWrapper {
             return;
         };
 
-        if (action.type === 'SET_POINTERS'){
+        if (action.type === SET_POINTERS){
             this.setState({
                 selected: action.payload.selected,
                 pivotIndex: action.payload.pivotIndex
             })
         }
-        if (action.type === 'SWAP'){
+        if (action.type === SWAP){
             this.setState({swapped: action.payload.swapped})
             setTimeout(() => {
                 this.setState({

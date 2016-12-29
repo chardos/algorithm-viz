@@ -1,4 +1,5 @@
-import { setPointers } from './actions';
+import { SET_POINTERS, SWAP } from './constants';
+import { setPointers, updateSwapState} from './actions';
 import { swap } from '../../utils';
 
 function* partition(items, leftIndex, rightIndex) {
@@ -21,13 +22,7 @@ function* partition(items, leftIndex, rightIndex) {
 
         if (leftIndex <= rightIndex) {
             items = swap(items, leftIndex, rightIndex);
-            yield {
-                type: 'SWAP',
-                payload: {
-                    swapped: [leftIndex, rightIndex],
-                    items
-                }
-            }
+            yield updateSwapState(leftIndex, rightIndex, items);
             leftIndex++;
             rightIndex--;
         }

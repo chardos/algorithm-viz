@@ -1,6 +1,3 @@
-- Add a view with graduated color.
-- move pivot and selected marker above
-- Add sleep sort
-- Add shuffle
 - update constants in file
+- Add shuffle
 - Add merge sort viz
