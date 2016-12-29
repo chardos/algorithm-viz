@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { randomizeArray, range } from '../../utils';
 import SortWrapper from '../Common/SortWrapper/SortWrapper';
 import quickSortGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
@@ -11,7 +12,7 @@ export default class QuickSortWrap extends SortWrapper {
         super();
         selected: null,
         this.state = {
-            array: [8,6,3,5,7,9,4],
+            array: randomizeArray(range(1,18)),
             pivotIndex: null,
             selected: [],
             swapped: [],

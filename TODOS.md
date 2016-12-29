@@ -1,4 +1,4 @@
-- add a "finished" state for the viz's
+- Add a view with graduated color.
 - update constants in file
 - pivot marker above
 - Add merge sort viz
