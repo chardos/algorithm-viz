@@ -12,7 +12,7 @@ export default class QuickSortWrap extends SortWrapper {
         super();
         selected: null,
         this.state = {
-            array: randomizeArray(range(1,18)),
+            array: randomizeArray(range(1,8)),
             pivotIndex: null,
             selected: [],
             swapped: [],
