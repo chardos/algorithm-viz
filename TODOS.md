@@ -1,2 +1,4 @@
+- make the dots scalable
+- Randomize colors
 - Add merge sort viz
 - Add shuffle
