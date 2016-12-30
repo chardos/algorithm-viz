@@ -1,3 +1,2 @@
-- update constants in file
-- Add shuffle
 - Add merge sort viz
+- Add shuffle

@@ -1,3 +1,5 @@
+@import '../mixins.scss';
+
 .bar{
     position: absolute;
     display: flex;
@@ -19,8 +21,16 @@
         opacity: 1;
     }
 
-    &.selected {
-        background-color: black !important;
+    &.selected::before {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: '';
+        // width: 6px;
+        // height: 6px;
+        // background-color: black;
+        @include triangle(15px, down, #aaa);
     }
 
     &.secondary-selected {
