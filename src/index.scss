@@ -4,19 +4,32 @@
     box-sizing: border-box;
 }
 html {
-    min-height: 100%;
-    border: 12px solid $creamy-red;
+    height: 100%;
 }
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: $primary-red;
-  color: $creamy-red;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    background-color: $primary-red;
+    color: $creamy-red;
+    font-size: 14px;
+}
+#root, .App{
+    height: 100%;
+}
+
+.border-wrap{
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 12px solid $creamy-red;
 }
 
 h1{
     margin: 0 0 20px;
     font-size: 70px;
     font-family: 'Rubik', sans-serif;
+    line-height: 1.1;
 }

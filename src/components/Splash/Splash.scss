@@ -1,0 +1,26 @@
+@import '../../variables';
+
+.splash__text-wrap{
+    max-width: 640px;
+}
+.splash__header{
+    margin-bottom: 60px;
+}
+.links__wrap{
+    display: flex;
+}
+.links__column{
+    padding: 0 15px;
+    flex-grow: 1;
+    text-align: left;
+}
+.links__header{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.links__border{
+    height: 6px;
+    background-color: $creamy-red;
+    margin-bottom: 10px;
+}
+.links__single{}
