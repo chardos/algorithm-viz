@@ -6,8 +6,11 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-            <Header />
-            {this.props.children}
+            <div className="border-wrap">
+                <div className="number"></div>
+                <Header />
+                {this.props.children}
+            </div>
         </div>
     );
   }

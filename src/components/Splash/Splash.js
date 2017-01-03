@@ -10,29 +10,27 @@ export default class Splash extends Component {
     render() {
 
         return (
-            <div className="border-wrap">
-                <div className="splash__text-wrap">
-                    <h1 className="splash__header">The Algorithm Visualizer</h1>
-                    <div className="links__wrap">
-                        <div className="links__column">
-                            <div className="links__header">Search</div>
-                            <div className="links__border"></div>
-                            <div className="links__single">01 Binary search</div>
-                        </div>
+            <div className="splash__text-wrap">
+                <h1 className="splash__header">The Algorithm Visualizer</h1>
+                <div className="links__wrap">
+                    <div className="links__column">
+                        <div className="links__header">Search</div>
+                        <div className="links__border"></div>
+                        <div className="links__single">01 Binary search</div>
+                    </div>
 
-                        <div className="links__column">
-                            <div className="links__header">Sort</div>
-                            <div className="links__border"></div>
-                            <div className="links__single">01 Bubble sort</div>
-                            <div className="links__single">02 Quick sort</div>
-                            <div className="links__single">03 Bogo sort</div>
-                        </div>
+                    <div className="links__column">
+                        <div className="links__header">Sort</div>
+                        <div className="links__border"></div>
+                        <div className="links__single">01 Bubble sort</div>
+                        <div className="links__single">02 Quick sort</div>
+                        <div className="links__single">03 Bogo sort</div>
+                    </div>
 
-                        <div className="links__column">
-                            <div className="links__header">Shuffle</div>
-                            <div className="links__border"></div>
-                            <div className="links__single">01 Fisher-Yates</div>
-                        </div>
+                    <div className="links__column">
+                        <div className="links__header">Shuffle</div>
+                        <div className="links__border"></div>
+                        <div className="links__single">01 Fisher-Yates</div>
                     </div>
                 </div>
             </div>
