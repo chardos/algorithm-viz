@@ -1,5 +1,22 @@
+@import './variables';
+
+* {
+    box-sizing: border-box;
+}
+html {
+    min-height: 100%;
+    border: 12px solid $creamy-red;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: $primary-red;
+  color: $creamy-red;
+}
+
+h1{
+    margin: 0 0 20px;
+    font-size: 70px;
+    font-family: 'Rubik', sans-serif;
 }
