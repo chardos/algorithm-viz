@@ -58,7 +58,7 @@ export default class BubbleSortWrap extends SortWrapper {
         }
         return (
             <div className="bubble-sort">
-                <h1>Bubble sort</h1>
+                <h1 className="bubble-sort-heading">Bubble sort</h1>
                 <div className="bubble-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const classes = classNames(
