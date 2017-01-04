@@ -12,7 +12,7 @@ export default class Splash extends Component {
 
         return (
             <div className="splash__text-wrap">
-                <CornerNumber number="1010" />
+                <CornerNumber number="0101" />
                 <h1 className="splash__header">The Algorithm Visualizer</h1>
                 <div className="links__wrap">
                     <div className="links__column">
