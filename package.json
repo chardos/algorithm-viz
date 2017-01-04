@@ -2,7 +2,8 @@
   "name": "sort-viz",
   "version": "0.1.0",
   "engines": {
-    "node": "6.8.1"
+    "node": "6.8.1",
+    "npm": "3.10.8"
   },
   "private": true,
   "devDependencies": {
