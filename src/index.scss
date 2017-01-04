@@ -36,3 +36,45 @@ h1{
     font-family: 'Rubik', sans-serif;
     line-height: 1.1;
 }
+
+
+.minilink {
+    position: relative;
+    cursor: pointer;
+    margin: 0 20px;
+    padding: 7px 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    transition: .3s all;
+
+    &:before{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: white;
+        opacity: .3;
+    }
+    &:after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: white;
+        opacity: 1;
+        transform: scale(0, 1);
+
+        transition: .3s all;
+    }
+    &:hover{
+        color: white;
+    }
+    &:hover:after{
+        transform: scale(1, 1);
+    }
+}
