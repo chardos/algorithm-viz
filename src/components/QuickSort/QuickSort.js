@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SET_POINTERS, SWAP } from './constants';
 import { randomizeArray, range } from '../../utils';
 import SortWrapper from '../Common/SortWrapper/SortWrapper';

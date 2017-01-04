@@ -1,3 +1,4 @@
+- Menu like https://www.bigyouth.fr/en?
 - make the dots scalable
 - Randomize colors
 - Add merge sort viz

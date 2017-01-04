@@ -1,4 +1,3 @@
-import { SET_POINTERS, SWAP } from './constants';
 import { setPointers, updateSwapState} from './actions';
 import { swap } from '../../utils';
 
