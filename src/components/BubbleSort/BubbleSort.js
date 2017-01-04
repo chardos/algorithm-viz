@@ -54,10 +54,11 @@ export default class BubbleSortWrap extends SortWrapper {
 
     render() {
         var style = {
-            width: this.state.array.length * 60 - 10
+            width: this.state.array.length * 65 - 10
         }
         return (
             <div className="bubble-sort">
+                <h1>Bubble sort</h1>
                 <div className="bubble-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const classes = classNames(
@@ -69,14 +70,14 @@ export default class BubbleSortWrap extends SortWrapper {
                         )
                         const moveForwards = this.state.swapped[0] === i;
                         const moveBackwards = this.state.swapped[1] === i;
-                        const animationMod = moveBackwards && -60 || moveForwards && 60;
+                        const animationMod = moveBackwards && -65 || moveForwards && 65;
                         var MyComponent = this.state.displayComponent;
                         return(
                             <MyComponent
                                 classes={classes}
                                 value={number}
                                 key={number}
-                                position={i * 60 + animationMod}
+                                position={i * 65 + animationMod}
                             >
                                 {number}
                             </MyComponent>

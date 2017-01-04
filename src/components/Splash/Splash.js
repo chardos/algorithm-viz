@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import CornerNumber from '../Common/CornerNumber/CornerNumber';
 import classNames from 'classnames';
 import './Splash.scss';
@@ -24,7 +25,7 @@ export default class Splash extends Component {
                     <div className="links__column">
                         <div className="links__header">Sort</div>
                         <div className="links__border"></div>
-                        <div className="links__single">01 Bubble sort</div>
+                        <Link to="/bubblesort" className="links__single">01 Bubble sort</Link>
                         <div className="links__single">02 Quick sort</div>
                         <div className="links__single">03 Bogo sort</div>
                     </div>
