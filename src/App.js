@@ -7,7 +7,6 @@ class App extends Component {
     return (
         <div className="App">
             <div className="border-wrap">
-                <div className="number"></div>
                 <Header />
                 {this.props.children}
             </div>
