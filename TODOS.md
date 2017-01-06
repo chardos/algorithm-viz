@@ -1,4 +1,6 @@
 - make the dots scalable
+- add flow
+- add immutable js
 - Animate above arrows
 - Menu like https://www.bigyouth.fr/en?
 - Allow base color changes
