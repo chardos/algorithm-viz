@@ -19,14 +19,14 @@ export default class Splash extends Component {
                     <div className="links__column">
                         <div className="links__header">Search</div>
                         <div className="links__border"></div>
-                        <div className="links__single">01 Binary search</div>
+                        <Link to="/binarysearch" className="links__single">01 Binary search</Link>
                     </div>
 
                     <div className="links__column">
                         <div className="links__header">Sort</div>
                         <div className="links__border"></div>
                         <Link to="/bubblesort" className="links__single">01 Bubble sort</Link>
-                        <div className="links__single">02 Quick sort</div>
+                        <Link to="/quicksort" className="links__single">02 Quick sort</Link>
                         <div className="links__single">03 Bogo sort</div>
                     </div>
 

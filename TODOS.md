@@ -1,3 +1,6 @@
+- hook up the links
+- quick sort needs pivot color
+- binary search needs complete styling
 - make the dots scalable
 - add flow
 - add immutable js
