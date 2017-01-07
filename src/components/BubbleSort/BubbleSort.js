@@ -71,16 +71,16 @@ export default class BubbleSortWrap extends SortWrapper {
                         const moveForwards = this.state.swapped[0] === i;
                         const moveBackwards = this.state.swapped[1] === i;
                         const animationMod = moveBackwards && -65 || moveForwards && 65;
-                        var MyComponent = this.state.displayComponent;
+                        var DisplayComponent = this.state.displayComponent;
                         return(
-                            <MyComponent
+                            <DisplayComponent
                                 classes={classes}
                                 value={number}
                                 key={number}
                                 position={i * 65 + animationMod}
                             >
                                 {number}
-                            </MyComponent>
+                            </DisplayComponent>
                         )
                     })}
                 </div>

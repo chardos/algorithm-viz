@@ -71,6 +71,7 @@ export default class QuickSortWrap extends SortWrapper {
         }
         return (
             <div className="quick-sort">
+                <h1 className="quick-sort__heading">Quick sort</h1>
                 <div className="quick-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const classes = classNames(
@@ -101,9 +102,9 @@ export default class QuickSortWrap extends SortWrapper {
                     })}
                 </div>
 
-                <button className="binary-search__sort-button" onClick={this.randomize}>Randomize</button>
-                <button className="binary-search__sort-button" onClick={this.toggleView}>Toggle view</button>
-                <button className="binary-search__sort-button" onClick={this.next}>Next</button>
+                <span className="minilink" onClick={this.randomize}>Randomize</span>
+                <span className="minilink" onClick={this.toggleView}>Toggle view</span>
+                <span className="minilink" onClick={this.next}>Next</span>
             </div>
         );
     }
