@@ -1,6 +1,6 @@
-- quick sort needs pivot color
-- binary search needs complete styling
 - add flow
+- Need back button
+- binary search needs complete styling
 - Animate page changes
 - add immutable js
 - Animate above arrows
