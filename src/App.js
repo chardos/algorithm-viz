@@ -6,7 +6,6 @@ import './App.scss';
 
 class App extends Component {
     componentDidMount() {
-        console.log('ASDF');
         document.addEventListener("keydown", this.handleKeyDown);
     }
 

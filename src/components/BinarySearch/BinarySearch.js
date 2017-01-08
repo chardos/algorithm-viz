@@ -62,6 +62,7 @@ class BinarySearchWrap extends Component {
         }
         return (
             <div className="binary-search">
+                <h1 className="bubble-sort-heading">Binary search</h1>
                 <div className="binary-search__searched-value">{this.state.searchedValue || 'Choose'}</div>
                 <div className="binary-search-wrap" style={style}>
                     {this.state.array.map((number, i) => {
