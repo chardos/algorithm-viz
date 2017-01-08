@@ -1,6 +1,6 @@
-- add flow
 - Need back button
 - binary search needs complete styling
+- Animate splash page on init
 - Animate page changes
 - add immutable js
 - Animate above arrows

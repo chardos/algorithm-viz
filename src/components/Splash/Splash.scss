@@ -29,4 +29,9 @@
     line-height: 1.8;
     color: $creamy-red;
     text-decoration: none;
+    transition: 0.3s all;
+
+    &:hover{
+        color: white;
+    }
 }
