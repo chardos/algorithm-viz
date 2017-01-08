@@ -85,13 +85,13 @@ h1{
 
 .back-arrow {
     position: absolute;
-    top: 25px;
-    left: 33px;
+    top: 35px;
+    left: 45px;
     opacity: 0.7;
     transition: 0.3s all;
 
     &:hover {
         opacity: 1;
-        transform: scale(1.05);
+        transform: translateX(-5px);
     }
 }

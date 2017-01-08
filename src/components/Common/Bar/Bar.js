@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import './Bar.scss';
 
-export default function Bar(props) {
+export default function Bar(props: {}) {
     const style = {
         transform: `translateX(${props.position}px)`,
         height: props.children * 10,
