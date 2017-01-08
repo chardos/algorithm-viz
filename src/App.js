@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import Header from './components/Common/Header/Header';
 import Icon from './components/Icon/Icon';
 import './App.scss';
@@ -7,7 +8,9 @@ class App extends Component {
   renderBackArrow(){
       const isNotSplashPage = window.location.pathname !== '/';
       return isNotSplashPage && (
-          <Icon name="back-arrow" width="40" height="40" />
+          <Link to="/" className="back-arrow">
+              <Icon name="back-arrow" width="40" height="40" />
+          </Link>
       )
   }
 
