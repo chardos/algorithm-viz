@@ -9,6 +9,7 @@
 - Allow base color changes
 - Add merge sort viz
 - Add shuffle
+- Deploy site in PROD mode
 
 
 When finished:

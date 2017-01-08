@@ -1,4 +1,6 @@
-export function swap(items, firstIndex, secondIndex){
+// @flow
+
+export function swap(items: [], firstIndex: number, secondIndex: number) : []{
     let newItems = [...items];
     newItems[firstIndex] = items[secondIndex];
     newItems[secondIndex] = items[firstIndex];
@@ -7,7 +9,7 @@ export function swap(items, firstIndex, secondIndex){
 
 
 // Fisher yates shuffle
-export function randomizeArray(array, currentIndex = array.length - 1){
+export function randomizeArray(array: [], currentIndex: number = array.length - 1) : []{
     if(currentIndex == 0) return array;
 
     // Get a random index
@@ -20,7 +22,7 @@ export function randomizeArray(array, currentIndex = array.length - 1){
 }
 
 
-export function range(start, end, arr = [end]) {
+export function range(start: number, end: number, arr: [] = [end]) : [] {
     if (start === end) return arr;
     return range(start, end - 1, [end - 1, ...arr])
 }
