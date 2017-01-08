@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { SET_POINTERS, SWAP } from './constants';
 import { randomizeArray, range } from '../../utils';
@@ -71,7 +73,7 @@ export default class QuickSortWrap extends SortWrapper {
         }
         return (
             <div className="quick-sort">
-                <h1 className="quick-sort__heading">Quick sort</h1>
+                <h1 className="quick-sort__heading  ">Quick sort</h1>
                 <div className="quick-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const classes = classNames(
