@@ -1,7 +1,9 @@
-@import '../../variables';
+@import '../../css/variables';
+@import '../../css/mixins';
 
 .splash__text-wrap{
-    max-width: 640px;
+    width: 640px;
+    @include center;
 }
 .splash__header{
     margin-bottom: 60px;

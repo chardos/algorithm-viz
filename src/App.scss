@@ -1,4 +1,4 @@
-@import './variables';
+@import './css/variables';
 
 * {
     box-sizing: border-box;
@@ -19,15 +19,20 @@ body {
     font-size: 14px;
 }
 
-#root, .App{
+#root,
+.App,
+.transition-wrap > div,
+.transition-wrap > div > div
+{
     height: 100%;
 }
 
+.transition-wrap {
+}
+
+
 .border-wrap{
-    display: flex;
     min-height: 100%;
-    align-items: center;
-    justify-content: center;
     border: 12px solid $creamy-red;
     background-image: url('images/diamond-faded.png');
     background-repeat: no-repeat;
