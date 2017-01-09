@@ -41,7 +41,11 @@
         background-color: red !important;
     }
 
-    &.found, &.done {
+    &.found {
         background-color: green !important;
+    }
+
+    &.done {
+        background-color: black !important;
     }
 }
