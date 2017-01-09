@@ -34,9 +34,10 @@ body {
 .border-wrap{
     min-height: 100%;
     border: 12px solid $creamy-red;
-    background-image: url('images/diamond-faded.png');
+    background-image: url('images/algodiamond.svg');
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-size: auto 150%;
+    background-position: center center;
 }
 
 h1{
@@ -90,8 +91,8 @@ h1{
 
 .back-arrow {
     position: absolute;
-    top: 35px;
-    left: 45px;
+    top: 30px;
+    left: 40px;
     opacity: 0.7;
     transition: 0.3s all;
 
@@ -99,4 +100,11 @@ h1{
         opacity: 1;
         transform: translateX(-5px);
     }
+}
+
+.diamond-holder{
+    opacity: 0.15;
+    position: absolute;
+    height: 95%;
+    width: 100%;
 }

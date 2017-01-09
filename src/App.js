@@ -31,15 +31,17 @@ class App extends Component {
             <div className="App" onKeyPress={this.handleKeyDown}>
                 <div className="border-wrap">
                     <CornerNumber number="0101" />
+                    {/*<div className="diamond-holder">
+                        <Icon name="diamond" width="100%" height="100%"/>
+                    </div>*/}
                     <RouteTransition
                         pathname={this.props.location.pathname}
                         atEnter={{ opacity: 0 }}
                         atLeave={{ opacity: 0 }}
                         atActive={{ opacity: 1 }}
                     >
-                    {this.renderBackArrow()}
-                    <Header/>
-                     {this.props.children}
+                        {this.renderBackArrow()}
+                        {this.props.children}
                     </RouteTransition>
                 </div>
             </div>

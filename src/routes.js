@@ -10,7 +10,7 @@ import QuickSortWrap from './components/QuickSort/QuickSort';
 export default(
     <Route path='/' component={App} >
         <IndexRoute component={Splash} />
-        <Route path="/binarysearch" component={BinarySearchWrap} />
+        <Route path="/binarysearch" component={BinarySearchWrap} number="01" />
         <Route path="/bubblesort" component={BubbleSortWrap} />
         <Route path="/quicksort" component={QuickSortWrap} />
     </Route>

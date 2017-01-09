@@ -1,6 +1,6 @@
+- Get numbers displaying correct number from routes?
 - binary search needs complete styling
 - Animate splash page on init
-- Animate page changes
 - add immutable js
 - Animate above arrows
 - make the dots scalable
