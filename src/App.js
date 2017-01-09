@@ -3,6 +3,7 @@ import { RouteTransition } from 'react-router-transition';
 import { Link, browserHistory } from 'react-router';
 import Header from './components/Common/Header/Header';
 import Icon from './components/Icon/Icon';
+import CornerNumber from './components/Common/CornerNumber/CornerNumber';
 import './App.scss';
 
 class App extends Component {
@@ -28,19 +29,20 @@ class App extends Component {
     render() {
         return (
             <div className="App" onKeyPress={this.handleKeyDown}>
-                    <div className="border-wrap">
-                        <RouteTransition
-                            pathname={this.props.location.pathname}
-                            atEnter={{ opacity: 0 }}
-                            atLeave={{ opacity: 0 }}
-                            atActive={{ opacity: 1 }}
-                        >
-                        {this.renderBackArrow()}
-                        <Header/>
-                         {this.props.children}
-                        </RouteTransition>
-                    </div>
-        </div>
+                <div className="border-wrap">
+                    <CornerNumber number="0101" />
+                    <RouteTransition
+                        pathname={this.props.location.pathname}
+                        atEnter={{ opacity: 0 }}
+                        atLeave={{ opacity: 0 }}
+                        atActive={{ opacity: 1 }}
+                    >
+                    {this.renderBackArrow()}
+                    <Header/>
+                     {this.props.children}
+                    </RouteTransition>
+                </div>
+            </div>
         );
     }
 }
