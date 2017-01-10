@@ -9,7 +9,9 @@ class Centralise extends Component {
             left: 0
         }
     }
-    componentDidMount() {
+
+    positionElementCenter = () => {
+        console.log('test');
         const windowHeight = window.innerHeight;
         const windowWidth = window.innerWidth;
         const elem = this.refs.centralise;
@@ -19,6 +21,15 @@ class Centralise extends Component {
             top: (windowHeight - elemHeight) / 2,
             left: (windowWidth - elemWidth) / 2
         })
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.positionElementCenter)
+    }
+    componentDidMount() {
+        this.positionElementCenter();
+        window.addEventListener('resize', this.positionElementCenter)
+
     }
 
     render() {
