@@ -1,5 +1,9 @@
+@import '../../css/mixins';
+
 .binary-search{
+    @include center;
 }
+
 .binary-search-wrap{
     margin: 0 auto;
     height: 50px;
@@ -7,7 +11,7 @@
 }
 
 .binary-search__searched-value{
-    font-size: 72px;
+    font-size: 18px;
     margin-bottom: 30px;
 }
 

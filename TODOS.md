@@ -8,7 +8,7 @@
 - Allow base color changes
 - Add merge sort viz
 - Add shuffle
-- Deploy site in PROD mode
+- Deploy site in PROD mode (minification and gzipping etc)
 
 
 When finished:
