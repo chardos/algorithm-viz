@@ -1,31 +1,63 @@
 @import '../../css/variables';
 @import '../../css/mixins';
 
+$column-delay: .7s;
+
 .splash__text-wrap{
     width: 640px;
     @include center;
 }
 .splash__header{
     margin-bottom: 60px;
+    opacity: 0;
+    transform: scale(.8);
+    transition: all 2s;
+
+     .loaded &{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 .links__wrap{
     display: flex;
 }
+
 .links__column{
     padding: 0 15px;
     flex-grow: 1;
     text-align: left;
+    transition: 1.5s all;
+    transform: translateY(-100px);
+    opacity: 0;
+
+    .loaded & {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
+
+.loaded .links__column:nth-child(1){
+    transition-delay: 0s + $column-delay;
+}
+.loaded .links__column:nth-child(2){
+    transition-delay: .3s + $column-delay;
+}
+.loaded .links__column:nth-child(3){
+    transition-delay: .6s + $column-delay;
+}
+
 .links__header{
     font-weight: 700;
     margin-bottom: 10px;
 }
+
 .links__border{
     height: 6px;
     background-image: url('../../images/checker.png');
     background-size: 4px auto;
     margin-bottom: 10px;
 }
+
 .links__single{
     display: block;
     line-height: 1.8;

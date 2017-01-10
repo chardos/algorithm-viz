@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
 import { RouteTransition } from 'react-router-transition';
 import { Link, browserHistory } from 'react-router';
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import CornerNumber from './components/Common/CornerNumber/CornerNumber';
 import Header from './components/Common/Header/Header';
 import Icon from './components/Icon/Icon';
-import CornerNumber from './components/Common/CornerNumber/CornerNumber';
 import './App.scss';
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            loaded: false
+        }
+    }
     componentDidMount() {
         document.addEventListener("keydown", this.handleKeyDown);
+        setTimeout(()=>{
+            this.setState({loaded: true})
+        }, 150)
     }
 
     renderBackArrow() {
@@ -27,13 +37,12 @@ class App extends Component {
     }
 
     render() {
+        const appClass = classNames('App', {'loaded': this.state.loaded});
+
         return (
-            <div className="App" onKeyPress={this.handleKeyDown}>
+            <div className={appClass} onKeyPress={this.handleKeyDown}>
                 <div className="border-wrap">
                     <CornerNumber number="0101" />
-                    {/*<div className="diamond-holder">
-                        <Icon name="diamond" width="100%" height="100%"/>
-                    </div>*/}
                     <RouteTransition
                         pathname={this.props.location.pathname}
                         atEnter={{ opacity: 0 }}

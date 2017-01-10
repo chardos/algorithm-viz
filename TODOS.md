@@ -1,5 +1,5 @@
-- animate to the side page transition
-- Animate splash page on init
+- position elements using javascript to detect height (not relying on transforms)
+  will reduce the weird blurring and jumping on animations
 - binary search needs complete styling
 - add immutable js
 - Animate above arrows
