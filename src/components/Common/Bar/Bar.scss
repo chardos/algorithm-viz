@@ -1,3 +1,4 @@
+@import '../../../css/variables.scss';
 @import '../mixins.scss';
 
 .bar{
@@ -30,7 +31,7 @@
         // width: 6px;
         // height: 6px;
         // background-color: black;
-        @include triangle(15px, down, #aaa);
+        @include triangle(15px, down, $creamy-red);
     }
 
     &.secondary-selected {
