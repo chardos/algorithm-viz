@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import CornerNumber from './components/Common/CornerNumber/CornerNumber';
 import Header from './components/Common/Header/Header';
+import Centralise from './components/Centralise/Centralise';
 import Icon from './components/Icon/Icon';
 import './App.scss';
 
@@ -50,7 +51,9 @@ class App extends Component {
                         atActive={{ opacity: 1 }}
                     >
                         {this.renderBackArrow()}
-                        {this.props.children}
+                        <Centralise>
+                            {this.props.children}
+                        </Centralise>
                     </RouteTransition>
                 </div>
             </div>
