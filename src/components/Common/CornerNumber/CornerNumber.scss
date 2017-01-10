@@ -1,8 +1,10 @@
+@import '../../../css/mixins.scss';
+
 .corner-number{
     position: absolute;
     right: 40px;
     top: 28px;
     font-size: 70px;
-    font-family: 'Rubik', sans-serif;
+    @include rubikBlack;
     opacity: 0.2;
 }
