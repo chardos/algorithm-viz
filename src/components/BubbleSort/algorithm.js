@@ -1,3 +1,5 @@
+import { animateSwap, updateList, select } from './actions';
+
 const swap = (list, position) => {
     // if swapped, return array, if not, return nothing.
     if(list[position] > list[position + 1]){
@@ -18,20 +20,12 @@ export default function* bubbleSortGenerator (list, position = 0, swapCounter = 
         position = 0;
         swapCounter = 0;
     }
-    yield {
-        type: 'select',
-        value: position
-    };
+    yield select(position);
+
     const newList = swap(list, position);
     if (newList){
-        yield {
-            type: 'animate_swap',
-            value: position
-        }
-        yield {
-            type: 'update_list',
-            value: newList
-        }
+        yield animateSwap(position);
+        yield updateList(newList);
         yield* bubbleSortGenerator(newList, position + 1, swapCounter + 1);
     }
     else{

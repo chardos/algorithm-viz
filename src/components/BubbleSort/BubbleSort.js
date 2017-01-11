@@ -1,3 +1,4 @@
+import { ANIMATE_SWAP, UPDATE_LIST, SELECT } from './constants';
 import React, { Component } from 'react';
 import { randomizeArray, range } from '../../utils';
 import bubbleSortGenerator from './algorithm';
@@ -33,20 +34,20 @@ export default class BubbleSortWrap extends SortWrapper {
             return;
         };
 
-        if (action.type === 'select'){
-            this.setState({selected: action.value})
+        if (action.type === SELECT){
+            this.setState({selected: action.payload})
         }
-        if (action.type === 'animate_swap'){
+        if (action.type === ANIMATE_SWAP){
             this.setState({
-                swapped: [action.value, action.value + 1]
+                swapped: [action.payload, action.payload + 1]
             })
             setTimeout(() => {
                 this.next()
             },300)
         }
-        if (action.type === 'update_list'){
+        if (action.type === 'UPDATE_LIST'){
             this.setState({
-                array: action.value,
+                array: action.payload,
                 swapped: []
             })
         }
