@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import binarySearchGenerator from './algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
+import binarySearchGenerator from './algorithm';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import './BinarySearch.scss';
+import {
+    UPDATE_ACTIVE,
+    NOT_FOUND,
+    SELECT,
+    FOUND
+} from './constants';
 
 class BinarySearchWrap extends Component {
     constructor(){
@@ -31,26 +37,25 @@ class BinarySearchWrap extends Component {
 
     next = () => {
         const action = this.generator.next().value;
-        console.log(action.type);
-        console.log(action.value);
-        if (action.type === 'select'){
-            this.setState({selected: action.value})
+
+        if (action.type === SELECT){
+            this.setState({selected: action.payload})
         }
-        if (action.type === 'not_found'){
+        if (action.type === NOT_FOUND){
             this.setState({
-                notFound: action.value,
+                notFound: action.payload,
                 selected: null
             })
         }
-        if (action.type === 'found'){
+        if (action.type === FOUND){
             this.setState({
-                found: action.value,
+                found: action.payload,
                 selected: null
             })
         }
-        if (action.type === 'update_active'){
+        if (action.type === UPDATE_ACTIVE){
             this.setState({
-                active: action.value,
+                active: action.payload,
                 notFound: null
             })
         }

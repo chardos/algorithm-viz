@@ -1,3 +1,5 @@
+- proper green on binary search
+- proper next button on binary search
 - position elements using javascript to detect height (not relying on transforms)
   will reduce the weird blurring and jumping on animations
 - binary search needs complete styling

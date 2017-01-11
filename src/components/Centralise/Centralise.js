@@ -3,8 +3,9 @@ import './Centralise.scss';
 
 /**
  * A component that will take content, calculate its height, then center it
- * vertically on the screen. Used this to replace flexbox because flexbox wasn't
- * playing nicely with react-router-transition
+ * vertically on the screen. Content was previously centered using position absolute
+ * and translates, but this was causing jump animation from having translates
+ * within a translated element.
  */
 
 class Centralise extends Component {
