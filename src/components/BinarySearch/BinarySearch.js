@@ -67,7 +67,7 @@ class BinarySearchWrap extends Component {
         }
         return (
             <div className="binary-search">
-                <h1 className="bubble-sort-heading">Binary search</h1>
+                <h1 className="binary-search__heading">Binary search</h1>
                 <div className="binary-search__searched-value">{this.state.searchedValue || 'Choose'}</div>
                 <div className="binary-search-wrap" style={style}>
                     {this.state.array.map((number, i) => {
@@ -93,7 +93,7 @@ class BinarySearchWrap extends Component {
                 </div>
                 {
                     this.state.chosen &&
-                    <button className="binary-search__sort-button" onClick={this.next}>Next</button>
+                    <span className="minilink" onClick={this.next}>Next</span>
                 }
 
             </div>
