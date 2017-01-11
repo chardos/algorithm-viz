@@ -7,6 +7,10 @@ export function swap(items: [], firstIndex: number, secondIndex: number) : []{
     return newItems;
 }
 
+export function isEscapeKey(keyCode: number) {
+    return keyCode === 27;
+}
+
 // Fisher yates shuffle
 export function randomizeArray(array: [], currentIndex: number = array.length - 1) : []{
     if(currentIndex == 0) return array;

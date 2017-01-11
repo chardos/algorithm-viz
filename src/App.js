@@ -6,6 +6,7 @@ import CornerNumber from './components/Common/CornerNumber/CornerNumber';
 import Header from './components/Common/Header/Header';
 import Centralise from './components/Centralise/Centralise';
 import Icon from './components/Icon/Icon';
+import { isEscapeKey } from './utils';
 import './App.scss';
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     }
     componentDidMount() {
         document.addEventListener("keydown", this.handleKeyDown);
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({loaded: true})
         }, 150)
     }
@@ -32,9 +33,7 @@ class App extends Component {
     }
 
     handleKeyDown(e) {
-        if (e.keyCode === 27) {
-            browserHistory.push('/')
-        }
+        isEscapeKey(e.keyCode) && browserHistory.push('/')
     }
 
     render() {
@@ -43,7 +42,7 @@ class App extends Component {
         return (
             <div className={appClass} onKeyPress={this.handleKeyDown}>
                 <div className="border-wrap">
-                    <CornerNumber number="0101" />
+                    <CornerNumber />
                     <RouteTransition
                         pathname={this.props.location.pathname}
                         atEnter={{ opacity: 0 }}
