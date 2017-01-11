@@ -1,18 +1,18 @@
 // @flow
 
-export function swap(items: [], firstIndex: number, secondIndex: number) : []{
+function swap(items: [], firstIndex: number, secondIndex: number) : []{
     let newItems = [...items];
     newItems[firstIndex] = items[secondIndex];
     newItems[secondIndex] = items[firstIndex];
     return newItems;
 }
 
-export function isEscapeKey(keyCode: number) {
+function isEscapeKey(keyCode: number): boolean {
     return keyCode === 27;
 }
 
 // Fisher yates shuffle
-export function randomizeArray(array: [], currentIndex: number = array.length - 1) : []{
+function randomizeArray(array: [], currentIndex: number = array.length - 1) : []{
     if(currentIndex == 0) return array;
 
     // Get a random index
@@ -25,7 +25,14 @@ export function randomizeArray(array: [], currentIndex: number = array.length - 
 }
 
 
-export function range(start: number, end: number, arr: [] = [end]) : [] {
+function range(start: number, end: number, arr: [] = [end]) : [] {
     if (start === end) return arr;
     return range(start, end - 1, [end - 1, ...arr])
+}
+
+export {
+    swap,
+    isEscapeKey,
+    randomizeArray,
+    range
 }

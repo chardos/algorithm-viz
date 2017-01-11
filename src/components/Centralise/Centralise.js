@@ -11,7 +11,6 @@ class Centralise extends Component {
     }
 
     positionElementCenter = () => {
-        console.log('test');
         const windowHeight = window.innerHeight;
         const windowWidth = window.innerWidth;
         const elem = this.refs.centralise;
