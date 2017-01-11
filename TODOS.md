@@ -9,6 +9,7 @@
 - Add merge sort viz
 - Add shuffle
 - Deploy site in PROD mode (minification and gzipping etc)
+- try E2E testing with cypress.io
 
 
 When finished:

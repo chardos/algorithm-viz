@@ -24,6 +24,8 @@ export default function* bubbleSortGenerator (list, position = 0, swapCounter = 
 
     const newList = swap(list, position);
     if (newList){
+        // Bug in the the way react renders the animation means we need to
+        // animate the swap, THEN update the state separately.
         yield animateSwap(position);
         yield updateList(newList);
         yield* bubbleSortGenerator(newList, position + 1, swapCounter + 1);

@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import './Centralise.scss';
 
+/**
+ * A component that will take content, calculate its height, then center it
+ * vertically on the screen. Used this to replace flexbox because flexbox wasn't
+ * playing nicely with react-router-transition
+ */
+
 class Centralise extends Component {
     constructor() {
         super();
