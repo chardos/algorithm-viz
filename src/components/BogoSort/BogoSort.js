@@ -23,17 +23,17 @@ export default class BogoSortWrap extends SortWrapper {
     }
 
     next = () => {
-        console.log('next');
         const next = this.generator.next();
         const action = next.value;
         const isDone = next.done === true;
-
+        console.log(next);
         if (isDone){
             this.setState({done: true})
             return;
         };
 
         if (action.type === 'UPDATE_LIST'){
+            console.log('updating list');
             this.setState({
                 array: action.payload
             })

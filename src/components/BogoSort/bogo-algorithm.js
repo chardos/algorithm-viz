@@ -15,7 +15,7 @@ function isArraySorted(array){
 
 export default function* bogoSortGenerator (array) {
     yield {
-        action: 'UPDATE_LIST',
+        type: 'UPDATE_LIST',
         payload: array
     };
     const arrayIsSorted = isArraySorted(array);
