@@ -20,7 +20,7 @@ function isEscapeKey(keyCode: number): boolean {
 
 /**
  * randomizeArray - takes an array, returns an array with the original arrays
- * values shuffled. Uses the Fisher yates algorithm.
+ * values shuffled. Uses the Fisher Yates algorithm.
  * @param {array} array - the array e.g. [1,2,3,4,5,6]
  * @return {array} the shuffled array e.g. [3,2,6,4,5,1]
  */

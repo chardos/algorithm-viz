@@ -1,3 +1,5 @@
+import { randomizeArray, range } from '../../utils';
+
 function isArraySorted(array){
     const [head, ...tail] = array;
     if(array.length == 1){
@@ -11,8 +13,12 @@ function isArraySorted(array){
     }
 }
 
-function bogoSort (array) {
-    // if()
+export default function* bogoSortGenerator (array) {
+    yield {
+        action: 'UPDATE_LIST',
+        payload: array
+    };
+    const arrayIsSorted = isArraySorted(array);
+    if(arrayIsSorted) return array;
+    yield* bogoSortGenerator(randomizeArray(array));
 }
-
-// bubbleSortGenerator([8,6,3,7,9,4]);

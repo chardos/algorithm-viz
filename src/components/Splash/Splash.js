@@ -25,7 +25,7 @@ export default class Splash extends Component {
                         <div className="links__border"></div>
                         <Link to="/bubblesort" className="links__single">01 Bubble sort</Link>
                         <Link to="/quicksort" className="links__single">02 Quick sort</Link>
-                        <div className="links__single">03 Bogo sort</div>
+                        <Link to="/bogosort" className="links__single">03 Bogo sort</Link>
                     </div>
 
                     <div className="links__column">

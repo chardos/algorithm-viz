@@ -1,30 +1,29 @@
-import { ANIMATE_SWAP, UPDATE_LIST, SELECT } from './constants';
+// import { ANIMATE_SWAP, UPDATE_LIST, SELECT } from './constants';
 import React, { Component } from 'react';
 import { randomizeArray, range } from '../../utils';
-import bubbleSortGenerator from './algorithm';
+import bogoSortGenerator from './bogo-algorithm';
 import SingleNode from '../Common/SingleNode/SingleNode';
 import SortWrapper from '../Common/SortWrapper/SortWrapper';
 import classNames from 'classnames';
-import './BubbleSort.scss';
+// import './BubbleSort.scss';
 
-export default class BubbleSortWrap extends SortWrapper {
+export default class BogoSortWrap extends SortWrapper {
     constructor(){
         super();
         this.state = {
-            selected: -100,
             array: randomizeArray(range(1,8)),
-            swapped: [],
             displayComponent: SingleNode,
             done: false
         }
-        this.generator = bubbleSortGenerator(this.state.array);
+        this.generator = bogoSortGenerator(this.state.array);
     }
 
     resetGenerator = () => {
-        this.generator = bubbleSortGenerator(this.state.array)
+        this.generator = bogoSortGenerator(this.state.array)
     }
 
     next = () => {
+        console.log('next');
         const next = this.generator.next();
         const action = next.value;
         const isDone = next.done === true;
@@ -34,21 +33,9 @@ export default class BubbleSortWrap extends SortWrapper {
             return;
         };
 
-        if (action.type === SELECT){
-            this.setState({selected: action.payload})
-        }
-        if (action.type === ANIMATE_SWAP){
+        if (action.type === 'UPDATE_LIST'){
             this.setState({
-                swapped: [action.payload, action.payload + 1]
-            })
-            setTimeout(() => {
-                this.next()
-            },300)
-        }
-        if (action.type === UPDATE_LIST){
-            this.setState({
-                array: action.payload,
-                swapped: []
+                array: action.payload
             })
         }
     }
@@ -59,7 +46,7 @@ export default class BubbleSortWrap extends SortWrapper {
         }
         return (
             <div className="bubble-sort">
-                <h1 className="bubble-sort-heading">Bubble sort</h1>
+                <h1 className="bubble-sort-heading">Bogo sort</h1>
                 <div className="bubble-sort__wrap" style={style}>
                     {this.state.array.map((number, i) => {
                         const classes = classNames(
@@ -69,16 +56,13 @@ export default class BubbleSortWrap extends SortWrapper {
                             },
                             { done: this.state.done }
                         )
-                        const moveForwards = this.state.swapped[0] === i;
-                        const moveBackwards = this.state.swapped[1] === i;
-                        const animationMod = moveBackwards && -65 || moveForwards && 65;
                         var DisplayComponent = this.state.displayComponent;
                         return(
                             <DisplayComponent
                                 classes={classes}
                                 value={number}
                                 key={number}
-                                position={i * 65 + animationMod}
+                                position={i * 65}
                             >
                                 {number}
                             </DisplayComponent>
