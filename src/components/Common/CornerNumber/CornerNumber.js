@@ -6,6 +6,7 @@ const mappings = {
     '/binarysearch': '01',
     '/bubblesort': '01',
     '/quicksort': '02',
+    '/bogosort': '03',
 }
 
 function getNumber(){
