@@ -1,3 +1,5 @@
+//TODO: if diamond is smaller than width, use fill instead.
+
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
 var canvas = document.querySelector('#Canvas1');
@@ -16,19 +18,25 @@ function drawDiamond(size, lineWidth, ctx){
     const bottom = centerY + size;
 
     ctx.moveTo(centerX, top);
-    ctx.lineWidth = lineWidth;
     ctx.lineTo(right, centerY);
     ctx.lineTo(centerX, bottom);
     ctx.lineTo(left, centerY);
     ctx.closePath()
-    // ctx.lineTo(centerX, top);
-    ctx.stroke();
+    if(size < lineWidth){
+        ctx.fill();
+    }
+    else {
+        ctx.lineWidth = lineWidth;
+        ctx.stroke();
+    }
 }
 
 function hasDiamondReachedEdge(size, ctx){
     if(
-        size > ctx.canvas.height &&
-        size * widthMod > ctx.canvas.width
+        // size > ctx.canvas.height &&
+        // size * widthMod > ctx.canvas.width
+        size > ctx.canvas.height/6 &&
+        size * widthMod > ctx.canvas.width/6
     ){
         return true;
     }
@@ -38,13 +46,13 @@ function hasDiamondReachedEdge(size, ctx){
 function step(size, ctx){
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.beginPath();
-        drawDiamond(size, 30, ctx);
+        drawDiamond(size, 60, ctx);
 
-    if(hasDiamondReachedEdge(size, ctx)){
-        requestAnimationFrame( () => { step(0, ctx)} )
-    }
-    else {
-        requestAnimationFrame( () => { step(size+10, ctx)} )
-    }
+    // if(hasDiamondReachedEdge(size, ctx)){
+    //     requestAnimationFrame( () => { step(0, ctx)} )
+    // }
+    // else {
+    //     requestAnimationFrame( () => { step(size + 2, ctx)} )
+    // }
 }
-step(100, ctx);
+step(60, ctx);
