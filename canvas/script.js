@@ -13,46 +13,44 @@ function drawDiamond(size, lineWidth, ctx){
     const centerX = ctx.canvas.width / 2;
     const centerY = ctx.canvas.height / 2;
     const top = centerY - size;
-    const left = centerX - size * 0.722;
-    const right = centerX + size * 0.722;
+    const left = centerX - size * widthMod;
+    const right = centerX + size * widthMod;
     const bottom = centerY + size;
 
+    ctx.lineWidth = lineWidth;
+    ctx.fillColor='red';
     ctx.moveTo(centerX, top);
     ctx.lineTo(right, centerY);
     ctx.lineTo(centerX, bottom);
     ctx.lineTo(left, centerY);
     ctx.closePath()
-    if(size < lineWidth){
-        ctx.fill();
-    }
-    else {
-        ctx.lineWidth = lineWidth;
-        ctx.stroke();
-    }
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.stroke();
+    ctx.globalCompositeOperation = 'source-in';
+    ctx.fill();
 }
 
 function hasDiamondReachedEdge(size, ctx){
-    if(
+    return(
         // size > ctx.canvas.height &&
         // size * widthMod > ctx.canvas.width
         size > ctx.canvas.height/6 &&
         size * widthMod > ctx.canvas.width/6
-    ){
-        return true;
-    }
-    return false;
+    )
 }
 
-function step(size, ctx){
+function step(size, lineWidth, ctx){
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.beginPath();
-        drawDiamond(size, 60, ctx);
+    drawDiamond(size, lineWidth, ctx);
 
-    // if(hasDiamondReachedEdge(size, ctx)){
-    //     requestAnimationFrame( () => { step(0, ctx)} )
-    // }
-    // else {
-    //     requestAnimationFrame( () => { step(size + 2, ctx)} )
-    // }
+    if(hasDiamondReachedEdge(size, ctx)){
+        requestAnimationFrame( () => { step(0, lineWidth, ctx)} )
+    }
+    else {
+        console.log('hey');
+        requestAnimationFrame( () => { step(size + 1, lineWidth, ctx)} )
+    }
 }
-step(60, ctx);
+console.log(ctx);
+step(0, 60, ctx);
