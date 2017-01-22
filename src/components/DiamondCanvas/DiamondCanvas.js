@@ -20,7 +20,12 @@ class DiamondCanvas extends Component {
     componentDidMount(){
         this.setCanvasSize();
         this.ctx = this.refs.canvas.getContext('2d');
-        this.step(100, 60, this.widthMod, this.ctx);
+        this.step(
+            this.props.size,
+            this.props.lineWidth,
+            this.widthMod,
+            this.ctx
+        );
         //set context here
     }
 

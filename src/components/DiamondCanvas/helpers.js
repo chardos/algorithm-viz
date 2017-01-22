@@ -1,9 +1,9 @@
 export function hasDiamondReachedEdge(size, widthMod, ctx){
     return(
-        // size > ctx.canvas.height &&
-        // size * widthMod > ctx.canvas.width
-        size > ctx.canvas.height/6 &&
-        size * widthMod > ctx.canvas.width/6
+        size > ctx.canvas.height &&
+        size * widthMod > ctx.canvas.width
+        // size > ctx.canvas.height/6 &&
+        // size * widthMod > ctx.canvas.width/6
     )
 }
 
