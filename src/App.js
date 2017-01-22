@@ -43,13 +43,6 @@ class App extends Component {
         return (
             <div className={appClass} onKeyPress={this.handleKeyDown}>
                 <DiamondCanvas size={0} lineWidth={170} />
-                <DiamondCanvas size={300} lineWidth={170} />
-                <DiamondCanvas size={600} lineWidth={170} />
-                <DiamondCanvas size={900} lineWidth={170} />
-                <DiamondCanvas size={1200} lineWidth={170} />
-                <DiamondCanvas size={1500} lineWidth={170} />
-                <DiamondCanvas size={1800} lineWidth={170} />
-                <DiamondCanvas size={1200} lineWidth={170} />
                 <div className="border-wrap">
                     <CornerNumber />
                     <RouteTransition

@@ -1,29 +1,30 @@
-export function hasDiamondReachedEdge(size, widthMod, ctx){
-    return(
-        size > ctx.canvas.height &&
-        size * widthMod > ctx.canvas.width
-        // size > ctx.canvas.height/6 &&
-        // size * widthMod > ctx.canvas.width/6
-    )
+import {LIGHT_DIAMOND_COLOR, DARK_DIAMOND_COLOR, LINE_WIDTH, X_WIDTH_MOD} from './constants';
+
+export function createDiamonds(num){
+    let diamonds = [];
+    for(var i=num; i>0; i--){
+        const color = i % 2 ? DARK_DIAMOND_COLOR : LIGHT_DIAMOND_COLOR;
+        const size = i * LINE_WIDTH;
+        diamonds.push({ color, size });
+    }
+    return diamonds;
 }
 
-export function drawDiamond(size, lineWidth, widthMod, ctx){
+export function drawDiamond(diamond, ctx){
     const centerX = ctx.canvas.width / 2;
     const centerY = ctx.canvas.height / 2;
-    const top = centerY - size;
-    const left = centerX - size * widthMod;
-    const right = centerX + size * widthMod;
-    const bottom = centerY + size;
+    const top = centerY - diamond.size;
+    const left = centerX - diamond.size * diamond.widthMod;
+    const right = centerX + diamond.size * diamond.widthMod;
+    const bottom = centerY + diamond.size;
 
-    ctx.lineWidth = lineWidth;
+    ctx.lineWidth = diamond.lineWidth;
+    ctx.beginPath()
     ctx.moveTo(centerX, top);
     ctx.lineTo(right, centerY);
     ctx.lineTo(centerX, bottom);
     ctx.lineTo(left, centerY);
-    ctx.fillStyle = '#ff5c40';
+    ctx.fillStyle = diamond.color;
     ctx.closePath()
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.stroke();
-    ctx.globalCompositeOperation = 'source-in';
     ctx.fill();
 }

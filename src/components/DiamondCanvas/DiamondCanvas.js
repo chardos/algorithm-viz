@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import './DiamondCanvas.scss';
-import {hasDiamondReachedEdge, drawDiamond} from './helpers';
+import {
+    LIGHT_DIAMOND_COLOR,
+    DARK_DIAMOND_COLOR,
+    LINE_WIDTH,
+    X_WIDTH_MOD,
+    SPEED
+} from './constants';
+import {createDiamonds, drawDiamond} from './helpers';
 
 /**
  * A component that places a canvas element as a background with a diamond
@@ -11,36 +18,42 @@ class DiamondCanvas extends Component {
     constructor() {
         super();
         this.state = {
-            currentSize: 100
+            diamonds: createDiamonds(10)
         };
-        this.widthMod = 0.722;
+        console.log(this.state.diamonds);
         this.ctx = null;
     }
 
     componentDidMount(){
         this.setCanvasSize();
         this.ctx = this.refs.canvas.getContext('2d');
-        this.step(
-            this.props.size,
-            this.props.lineWidth,
-            this.widthMod,
-            this.ctx
-        );
-        //set context here
+        this.step(this.ctx);
     }
 
 
-    step(size, lineWidth, widthMod, ctx) {
+    step(ctx) {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.beginPath();
-        drawDiamond(size, lineWidth, widthMod, ctx);
 
-        if(hasDiamondReachedEdge(size, widthMod, ctx)){
-            requestAnimationFrame( () => { this.step(0, lineWidth, widthMod, ctx)} )
-        }
-        else {
-            requestAnimationFrame( () => { this.step(size + 1, lineWidth, widthMod, ctx)} )
-        }
+        // Draw the diamonds
+        this.state.diamonds.forEach(diamond => {
+            drawDiamond({
+                size: diamond.size,
+                lineWidth: LINE_WIDTH,
+                widthMod: X_WIDTH_MOD,
+                color: diamond.color
+            }, ctx);
+        })
+
+        // increment by each diamonds size
+        const incrementedDiamonds = this.state.diamonds.map(diamond => ({
+            ...diamond,
+            size: diamond.size + SPEED
+        }))
+        this.setState({diamonds: incrementedDiamonds})
+
+
+        requestAnimationFrame( () => { this.step(ctx)} )
     }
 
     setCanvasSize() {
