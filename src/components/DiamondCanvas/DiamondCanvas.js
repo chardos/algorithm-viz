@@ -20,13 +20,22 @@ class DiamondCanvas extends Component {
     componentDidMount(){
         this.setCanvasSize();
         this.ctx = this.refs.canvas.getContext('2d');
-        this.animate();
+        this.step(100, 60, this.widthMod, this.ctx);
         //set context here
     }
 
 
-    animate() {
-        drawDiamond(100, 60, this.widthMod, this.ctx);
+    step(size, lineWidth, widthMod, ctx) {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.beginPath();
+        drawDiamond(size, lineWidth, widthMod, ctx);
+
+        if(hasDiamondReachedEdge(size, widthMod, ctx)){
+            requestAnimationFrame( () => { this.step(0, lineWidth, widthMod, ctx)} )
+        }
+        else {
+            requestAnimationFrame( () => { this.step(size + 1, lineWidth, widthMod, ctx)} )
+        }
     }
 
     setCanvasSize() {

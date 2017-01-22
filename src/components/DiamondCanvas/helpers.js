@@ -16,11 +16,11 @@ export function drawDiamond(size, lineWidth, widthMod, ctx){
     const bottom = centerY + size;
 
     ctx.lineWidth = lineWidth;
-    ctx.fillColor='red';
     ctx.moveTo(centerX, top);
     ctx.lineTo(right, centerY);
     ctx.lineTo(centerX, bottom);
     ctx.lineTo(left, centerY);
+    ctx.fillStyle = '#ff5c40';
     ctx.closePath()
     ctx.globalCompositeOperation = 'source-over';
     ctx.stroke();
