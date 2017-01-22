@@ -10,6 +10,26 @@ export function createDiamonds(num){
     return diamonds;
 }
 
+export function incrementDiamonds(diamonds, speed){
+    return diamonds.map(diamond => ({
+        ...diamond,
+        size: diamond.size + speed
+    }));
+}
+
+export function reorderDiamondsIfNeeded(diamonds){
+    let needsReorder = false;
+    const [firstDiamond, ...otherDiamonds] = diamonds;
+    if(firstDiamond.size >= diamonds.length * LINE_WIDTH){
+        firstDiamond.size = 0;
+        needsReorder = true;
+    }
+    if (needsReorder) {
+        return [...otherDiamonds, firstDiamond];
+    }
+    return diamonds;
+}
+
 export function drawDiamond(diamond, ctx){
     const centerX = ctx.canvas.width / 2;
     const centerY = ctx.canvas.height / 2;

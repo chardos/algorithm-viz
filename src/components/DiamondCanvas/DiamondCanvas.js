@@ -7,7 +7,7 @@ import {
     X_WIDTH_MOD,
     SPEED
 } from './constants';
-import {createDiamonds, drawDiamond} from './helpers';
+import {createDiamonds, reorderDiamondsIfNeeded, incrementDiamonds, drawDiamond} from './helpers';
 
 /**
  * A component that places a canvas element as a background with a diamond
@@ -46,14 +46,12 @@ class DiamondCanvas extends Component {
         })
 
         // increment by each diamonds size
-        const incrementedDiamonds = this.state.diamonds.map(diamond => ({
-            ...diamond,
-            size: diamond.size + SPEED
-        }))
-        this.setState({diamonds: incrementedDiamonds})
+        const reorderedDiamonds = reorderDiamondsIfNeeded(this.state.diamonds);
+        const incrementedDiamonds = incrementDiamonds(reorderedDiamonds, SPEED);
 
+        this.setState({diamonds: incrementedDiamonds});
 
-        requestAnimationFrame( () => { this.step(ctx)} )
+        requestAnimationFrame( () => { this.step(ctx)} );
     }
 
     setCanvasSize() {
