@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import CornerNumber from './components/Common/CornerNumber/CornerNumber';
 import Header from './components/Common/Header/Header';
 import Centralise from './components/Centralise/Centralise';
+import DiamondCanvas from './components/DiamondCanvas/DiamondCanvas';
 import Icon from './components/Icon/Icon';
 import { isEscapeKey } from './utils';
 import './App.scss';
@@ -41,6 +42,7 @@ class App extends Component {
 
         return (
             <div className={appClass} onKeyPress={this.handleKeyDown}>
+                <DiamondCanvas />
                 <div className="border-wrap">
                     <CornerNumber />
                     <RouteTransition

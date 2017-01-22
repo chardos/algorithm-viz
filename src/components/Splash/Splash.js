@@ -9,7 +9,6 @@ export default class Splash extends Component {
     }
 
     render() {
-
         return (
             <div className="splash__text-wrap">
                 <h1 className="splash__header">The Algorithm Visualizer</h1>
