@@ -18,7 +18,7 @@ class DiamondCanvas extends Component {
     constructor() {
         super();
         this.state = {
-            diamonds: createDiamonds(10)
+            diamonds: createDiamonds(14)
         };
         console.log(this.state.diamonds);
         this.ctx = null;
